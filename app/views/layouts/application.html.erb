@@ -10,6 +10,36 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <%= link_to "Blog App", root_path, class: "navbar-brand" %>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Authors", "#", class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <% flash.each do |name, msg| %>
+        <div class="alert-<%"#{name}"%>">
+          <a href="#" class="close", data-dismiss="alert" &#215;></a>
+          <%= content_tag :div, msg, id: "flash_#{name}" if msg.is_a?(String) %>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="col-md-8">
+            <%= yield %>
+          </div>
+          <div class="col-md-4">
+            <%= yield :sidebar%>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
