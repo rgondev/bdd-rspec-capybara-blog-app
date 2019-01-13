@@ -10,6 +10,9 @@
           <%= link_to "Authors", "#", class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
+          <li>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          </li>
           <div class="narbar-right">
             <p class="navbar-text">
               <%= "Signed in as #{current_user.email}" %>
