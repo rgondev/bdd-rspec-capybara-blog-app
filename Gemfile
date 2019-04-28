@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'guard-rspec', require: false
   gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
 end
 
 group :development do
